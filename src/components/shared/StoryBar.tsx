@@ -1,12 +1,18 @@
 import { useUserContext } from "@/context/AuthContext";
+import { Models } from "appwrite";
 
-const StoryBar = ({ follow }) => {
+type StoryBarProps = {
+  follow: Models.Document[]
+};
+
+
+const StoryBar = ({ follow } : StoryBarProps) => {
   const { user } = useUserContext();
 
-  console.log("we have userws s", follow.documents);
+  console.log("we have userws s", follow);
   console.log("and this is me ", user);
 
-  const users = follow?.documents.filter((item: any) => item.$id !== user.id);
+  const users = follow?.filter((item: any) => item.$id !== user.id);
   users.splice(1, 1);
   console.log("we have userws s", user);
   return (

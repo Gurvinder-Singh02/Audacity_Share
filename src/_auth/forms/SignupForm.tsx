@@ -29,8 +29,8 @@ const SignupForm = () => {
   });
 
   // Queries
-  const { mutateAsync: createUserAccount, isLoading: isCreatingAccount } = useCreateUserAccount();
-  const { mutateAsync: signInAccount, isLoading: isSigningInUser } = useSignInAccount();
+  const { mutateAsync: createUserAccount, isPending: isCreatingAccount } = useCreateUserAccount();
+  const { mutateAsync: signInAccount, isPending: isSigningInUser } = useSignInAccount();
   let clicked = false
 
   // Handler
@@ -46,11 +46,11 @@ const SignupForm = () => {
         customError = true;
       }
 
-      if(customError){
-        console.log(`--Custom error worked-- ${newUser?.response?.message}`);
-        toast({ title: `Login Failed`,description: `${newUser?.response?.message}`, });
-        return;
-      }
+      // if(customError){
+      //   console.log(`--Custom error worked-- ${newUser?.response?.message}`);
+      //   toast({ title: `Login Failed`,description: `${newUser?.response?.message}`, });
+      //   return;
+      // }
 
       const session = await signInAccount({
         email: user.email,
