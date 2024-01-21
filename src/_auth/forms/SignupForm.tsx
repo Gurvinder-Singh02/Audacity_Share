@@ -39,11 +39,11 @@ const SignupForm = () => {
     try {
       const newUser = await createUserAccount(user);
 
-      let customError = false;
+      // let customError = false;
 
       if( newUser instanceof Error ){
         console.log("----Error aya ----");
-        customError = true;
+        // customError = true;
       }
 
       // if(customError){
