@@ -2,22 +2,18 @@ import { useUserContext } from "@/context/AuthContext";
 import { Models } from "appwrite";
 
 type StoryBarProps = {
-  follow: Models.Document[]
+  follow ?: Models.Document[]
 };
 
 
 const StoryBar = ({ follow } : StoryBarProps) => {
   const { user } = useUserContext();
 
-  console.log("we have userws s", follow);
-  console.log("and this is me ", user);
-
   const users = follow?.filter((item: any) => item.$id !== user.id);
-  users.splice(1, 1);
-  console.log("we have userws s", user);
+  users?.splice(1, 1);
   return (
-    <div className="flex-start w-full overflow-scroll custom-scrollbar gap-4 p-4 ">
-      <div className="flex-center flex-col gap-2 w-[100px] relative">
+    <section className="flex-start w-full overflow-scroll custom-scrollbar gap-4 ">
+      <div className="flex-center min-w-[100px]  flex-1 flex-col gap-2 relative">
         <img
           width={80}
           height={80}
@@ -25,25 +21,25 @@ const StoryBar = ({ follow } : StoryBarProps) => {
           src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
           alt="Profile"
         />
-        <p className="absolute right-0 bottom-6  bg-white rounded-full text-black px-[7px] text-bold cursor-pointer  ">
+        <p className="absolute right-2 bottom-8  bg-white rounded-full text-black px-[7px] text-bold cursor-pointer  ">
           +
         </p>
         <p className="small-medium truncate ">My Story </p>
       </div>
       {users?.map((user: any, index: number) => (
-        <div key={user.$id} className="flex-center flex-col gap-2 w-[100px]">
+        <div key={user.$id} className="min-w-[100px] flex-center flex-col gap-2 ">
           <img
-            width={80}
-            height={80}
-            className="rounded-full border-4 h-[80px]  border-primary-500 p-1 object-cover "
+            className="rounded-full border-4 size-20 border-primary-500 p-1 object-cover "
             src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
             alt="Profile"
           />
-          <p className="small-medium truncate ">{user.name}</p>
+          <p className="small-medium truncate ">
+            {user.name}
+          </p>
           {index > 2}
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

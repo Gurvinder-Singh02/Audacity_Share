@@ -3,7 +3,7 @@ import { Models } from "appwrite";
 // import { useToast } from "@/components/ui/use-toast";
 import { Loader, PostCard, UserCard } from "@/components/shared";
 import { useGetRecentPosts, useGetUsers } from "@/lib/react-query/queries";
-// import StoryBar from "@/components/shared/StoryBar";
+import StoryBar from "@/components/shared/StoryBar";
 
 const Home = () => {
   // const { toast } = useToast();
@@ -42,8 +42,8 @@ const Home = () => {
           {isUserLoading && !creators ? (
             <Loader />
           ) : (
-            <p>story</p>
-            // <StoryBar follow={creators?.documents} />
+            // <p>story</p>
+            <StoryBar follow={creators?.documents } />
           )}
 
           <h2 className="h3-bold md:h2-bold text-left w-full">Home Feed</h2>
