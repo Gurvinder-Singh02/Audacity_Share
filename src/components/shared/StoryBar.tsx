@@ -12,8 +12,8 @@ const StoryBar = ({ follow } : StoryBarProps) => {
   const users = follow?.filter((item: any) => item.$id !== user.id);
   users?.splice(1, 1);
   return (
-    <section className="flex-start w-full overflow-scroll custom-scrollbar gap-4 ">
-      <div className="flex-center min-w-[100px]  flex-1 flex-col gap-2 relative">
+    <section className="flex-start max-w-[480px] lg:max-w-[650px] md:max-w-[650px] overflow-scroll custom-scrollbar ">
+      <div className="flex-center  min-w-[90px]  flex-1 flex-col gap-2 relative">
         <img
           width={80}
           height={80}
