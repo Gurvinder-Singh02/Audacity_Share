@@ -37,7 +37,7 @@ const Topbar = () => {
             <img
               src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
               alt="profile"
-              className="h-8 w-8 rounded-full"
+              className="h-8 w-8 object-cover rounded-full"
             />
           </Link>
         </div>
