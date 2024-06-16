@@ -38,7 +38,7 @@ const GridPostList = ({
                     "/assets/icons/profile-placeholder.svg"
                   }
                   alt="creator"
-                  className="w-8 h-8 rounded-full"
+                  className="w-8 h-8 object-cover rounded-full"
                 />
                 <p className="line-clamp-1">{post.creator.name}</p>
               </div>
