@@ -37,12 +37,14 @@ const Footer = () => {
                 </Label>
                 <Input
                   id="link"
-                  defaultValue="https://gurvinder-singh02.github.io/Gxuri_web/"
+                  defaultValue="https://gxuri.vercel.app/"
                   readOnly
                 />
               </div>
               <Button type="submit" size="sm" className="px-3 text-white">
-                <a href="https://gurvinder-singh02.github.io/Gxuri_web/">O</a>
+                <a href="https://gxuri.vercel.app/" target="_blank">
+                  O
+                </a>
               </Button>
             </div>
             <DialogFooter className="sm:justify-start">
