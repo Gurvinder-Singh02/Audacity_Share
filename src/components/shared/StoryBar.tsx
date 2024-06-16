@@ -1,11 +1,12 @@
 import { useUserContext } from "@/context/AuthContext";
 import { Models } from "appwrite";
+import { Link } from "react-router-dom";
 
 type StoryBarProps = {
-  follow ?: Models.Document[]
+  follow?: Models.Document[];
 };
 
-const StoryBar = ({ follow } : StoryBarProps) => {
+const StoryBar = ({ follow }: StoryBarProps) => {
   const { user } = useUserContext();
 
   const users = follow?.filter((item: any) => item.$id !== user.id);
@@ -26,17 +27,19 @@ const StoryBar = ({ follow } : StoryBarProps) => {
         <p className="small-medium truncate ">My Story </p>
       </div>
       {users?.map((user: any, index: number) => (
-        <div key={user.$id} className="min-w-[100px] flex-center flex-col gap-2 ">
-          <img
-            className="rounded-full border-4 size-20 border-primary-500 p-1 object-cover "
-            src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
-            alt="Profile"
-          />
-          <p className="small-medium truncate ">
-            {user.name}
-          </p>
-          {index > 2}
-        </div>
+        <Link to={`/profile/${user.$id}`}>
+          <div
+            key={user.$id}
+            className="min-w-[100px] flex-center flex-col gap-2 ">
+            <img
+              className="rounded-full border-4 size-20 border-primary-500 p-1 object-cover "
+              src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
+              alt="Profile"
+            />
+            <p className="small-medium truncate ">{user.name}</p>
+            {index > 2}
+          </div>
+        </Link>
       ))}
     </section>
   );
