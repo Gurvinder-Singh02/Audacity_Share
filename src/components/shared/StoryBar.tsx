@@ -5,7 +5,6 @@ type StoryBarProps = {
   follow ?: Models.Document[]
 };
 
-
 const StoryBar = ({ follow } : StoryBarProps) => {
   const { user } = useUserContext();
 
