@@ -36,7 +36,7 @@ const StoryBar = ({ follow }: StoryBarProps) => {
               src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
               alt="Profile"
             />
-            <p className="small-medium truncate ">{user.name}</p>
+            <p className="small-medium truncate w-16 ">{user.name}</p>
             {index > 2}
           </div>
         </Link>
