@@ -12,7 +12,7 @@ const StoryBar = ({ follow }: StoryBarProps) => {
   const users = follow?.filter((item: any) => item.$id !== user.id);
   users?.splice(1, 1);
   return (
-    <section className="flex-start max-w-[300px] lg:max-w-[650px] md:max-w-[650px] overflow-scroll custom-scrollbar ">
+    <section className="flex-start max-w-[500px] lg:max-w-[650px] md:max-w-[650px] overflow-scroll custom-scrollbar ">
       <div className="flex-center  min-w-[90px]  flex-1 flex-col gap-2 relative">
         <img
           width={80}
@@ -36,7 +36,7 @@ const StoryBar = ({ follow }: StoryBarProps) => {
               src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
               alt="Profile"
             />
-            <p className="small-medium truncate w-16 ">{user.name}</p>
+            <p className="small-medium text-center truncate w-16 ">{user.name}</p>
             {index > 2}
           </div>
         </Link>
